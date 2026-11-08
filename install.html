@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Install Copse</title>
+  <meta name="description" content="Install Copse with Homebrew, from a release download, or from source.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="./"><img src="images/logo.svg" alt="" width="34" height="34"><span>Copse</span></a>
+    <nav>
+      <a href="install.html" aria-current="page">Install</a>
+      <a href="guide.html">Guide</a>
+      <a href="releases.html">Releases</a>
+      <a href="https://github.com/Copse-SCM/copse">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Install Copse</h1>
+      <p>Copse runs on macOS (Apple Silicon or Intel) and Linux (x86_64). Pick whichever way suits you; they all give you the same <code>copse</code> command.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap">
+      <div class="cards">
+        <div class="card">
+          <h3><svg class="icon small" viewBox="0 0 24 24"><path d="M5 9h14l-1.5 11h-11z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>Homebrew</h3>
+          <p class="muted">The easiest way, on macOS or Linux. Upgrades come with <code>brew upgrade</code>.</p>
+          <pre class="copyable"><code>brew install copse-scm/copse/copse</code></pre>
+        </div>
+        <div class="card">
+          <h3><svg class="icon small" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download</h3>
+          <p class="muted">A ready-made binary from the latest release. Unpack it and put <code>copse</code> on your <code>PATH</code>.</p>
+          <pre class="copyable"><code>tar xzf copse-*.tar.gz
+sudo mv copse-*/copse /usr/local/bin/</code></pre>
+        </div>
+        <div class="card">
+          <h3><svg class="icon small" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M13.5 5l-3 14"/></svg>From source</h3>
+          <p class="muted">With <a href="https://rustup.rs">Rust</a> installed. Builds in a minute or two.</p>
+          <pre class="copyable"><code>cargo install --git https://github.com/Copse-SCM/copse</code></pre>
+        </div>
+      </div>
+
+      <h2>Downloads for 2026.11.0</h2>
+      <ul class="downloads">
+        <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/copse-2026.11.0-aarch64-apple-darwin.tar.gz"><svg class="icon small" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>macOS, Apple Silicon (M1 and later)<span class="size">3.7 MB</span></a></li>
+        <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/copse-2026.11.0-x86_64-apple-darwin.tar.gz"><svg class="icon small" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>macOS, Intel<span class="size">4.1 MB</span></a></li>
+        <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/copse-2026.11.0-x86_64-unknown-linux-gnu.tar.gz"><svg class="icon small" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9l3 3-3 3"/><path d="M13 15h3"/></svg>Linux, x86_64<span class="size">4.3 MB</span></a></li>
+      </ul>
+      <p class="muted">Other versions are on the <a href="releases.html">releases page</a>.</p>
+
+      <h2>Check the download</h2>
+      <p>Each release has a <code>SHA256SUMS</code> file. Put it next to the archive and run:</p>
+      <pre class="copyable"><code>shasum -a 256 -c SHA256SUMS --ignore-missing</code></pre>
+
+      <div class="note-box">
+        <p><strong>On a Mac,</strong> a file downloaded in a browser is quarantined, and Copse isn't signed with an Apple developer certificate yet, so macOS won't open it until you clear that: <code>xattr -d com.apple.quarantine /usr/local/bin/copse</code>. Homebrew and <code>curl</code> downloads aren't affected.</p>
+      </div>
+
+      <h2>Check it works</h2>
+      <pre class="copyable"><code>copse version</code></pre>
+      <p>Then try the <a href="guide.html">guide</a>, or run <code>copse</code> on its own for the interactive screen.</p>
+
+      <h2>The nightly build</h2>
+      <p>A build of the latest <code>main</code> is published each day it changes, named like <code>2026.11.09-dev+abc1234</code> (the date and the commit). It has everything new, and may have rough edges.</p>
+      <pre class="copyable"><code>brew install copse-scm/copse/copse-nightly</code></pre>
+      <p class="muted"><code>copse</code> and <code>copse-nightly</code> both provide the <code>copse</code> command, so install one or the other. The nightly is also on the <a href="https://github.com/Copse-SCM/copse/releases/tag/nightly">nightly release page</a>.</p>
+
+      <h2>Upgrading and removing</h2>
+      <table>
+        <tr><th>Installed with</th><th>Upgrade</th><th>Remove</th></tr>
+        <tr><td>Homebrew</td><td><code>brew upgrade copse</code></td><td><code>brew uninstall copse</code></td></tr>
+        <tr><td>Download</td><td>Download the new version and replace the file</td><td><code>sudo rm /usr/local/bin/copse</code></td></tr>
+        <tr><td>Cargo</td><td>Run the install command again</td><td><code>cargo uninstall copse</code></td></tr>
+      </table>
+      <p class="muted">Removing Copse doesn't touch your repositories: each keeps its history in its own <code>.copse</code> folder.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Copse is free software under the <a href="https://github.com/Copse-SCM/copse/blob/main/LICENSE">Apache License 2.0</a>.</p>
+    <p><a href="guide.html">Guide</a> · <a href="https://github.com/Copse-SCM/copse">GitHub</a> · <a href="https://github.com/Copse-SCM/copse/blob/main/SECURITY.md">Security</a></p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

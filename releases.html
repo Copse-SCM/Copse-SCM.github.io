@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Copse releases</title>
+  <meta name="description" content="Copse releases and nightly builds, with downloads and what changed.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="./"><img src="images/logo.svg" alt="" width="34" height="34"><span>Copse</span></a>
+    <nav>
+      <a href="install.html">Install</a>
+      <a href="guide.html">Guide</a>
+      <a href="releases.html" aria-current="page">Releases</a>
+      <a href="https://github.com/Copse-SCM/copse">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Releases</h1>
+      <p>Versions are dates: <code>2026.11.0</code> is the first release of November 2026, <code>2026.11.1</code> the next. Each release has builds for macOS (Apple Silicon and Intel) and Linux (x86_64), and a <code>SHA256SUMS</code> file to check them.</p>
+    </div>
+  </section>
+
+  <section class="page-body">
+    <div class="wrap">
+
+      <article class="release">
+        <header>
+          <h2>Nightly</h2>
+          <span class="tag dev">Daily build of main</span>
+        </header>
+        <p class="muted">Built every morning (06:17 UTC) when <code>main</code> has changed, named like <code>2026.11.09-dev+abc1234</code>: the date and the commit. It has everything new, and may have rough edges.</p>
+        <ul class="downloads">
+          <li><a href="https://github.com/Copse-SCM/copse/releases/tag/nightly"><svg class="icon small" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Downloads for today's nightly</a></li>
+        </ul>
+        <pre class="copyable"><code>brew install copse-scm/copse/copse-nightly</code></pre>
+      </article>
+
+      <article class="release">
+        <header>
+          <h2>2026.11.0</h2>
+          <span><span class="tag">Latest</span> <span class="muted">November 8, 2026</span></span>
+        </header>
+        <p>The first release.</p>
+        <ul>
+          <li><strong>Everyday version control:</strong> commit without a staging area, pick changes or single lines with <code>commit -p</code>, branch, merge, rebase, cherry-pick, revert, stash, tag.</li>
+          <li><strong>Undo for everything:</strong> <code>copse undo</code> reverses the last commit, merge, rebase, reset or checkout.</li>
+          <li><strong>Works with git servers:</strong> GitHub, GitLab and any git host over HTTPS or SSH, plus older cgit servers; shallow and partial clones; signed commits, submodules and Git LFS.</li>
+          <li><strong>Merges like git's:</strong> renames and moved folders are followed, with <code>-X</code> options and octopus merges; 2,000 randomized stress rounds match git exactly.</li>
+          <li><strong>A built-in terminal interface:</strong> run <code>copse</code> on its own.</li>
+          <li><strong>Faster than git</strong> at status, commits and checkouts.</li>
+        </ul>
+        <ul class="downloads">
+          <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/copse-2026.11.0-aarch64-apple-darwin.tar.gz"><svg class="icon small" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>macOS, Apple Silicon<span class="size">3.7 MB</span></a></li>
+          <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/copse-2026.11.0-x86_64-apple-darwin.tar.gz"><svg class="icon small" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>macOS, Intel<span class="size">4.1 MB</span></a></li>
+          <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/copse-2026.11.0-x86_64-unknown-linux-gnu.tar.gz"><svg class="icon small" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9l3 3-3 3"/><path d="M13 15h3"/></svg>Linux, x86_64<span class="size">4.3 MB</span></a></li>
+          <li><a href="https://github.com/Copse-SCM/copse/releases/download/v2026.11.0/SHA256SUMS"><svg class="icon small" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>SHA256SUMS<span class="size">checksums</span></a></li>
+        </ul>
+        <p class="muted" style="margin-top:14px">Full notes on <a href="https://github.com/Copse-SCM/copse/releases/tag/v2026.11.0">GitHub</a>.</p>
+      </article>
+
+      <p class="muted">Every release and its notes are also on <a href="https://github.com/Copse-SCM/copse/releases">GitHub</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Copse is free software under the <a href="https://github.com/Copse-SCM/copse/blob/main/LICENSE">Apache License 2.0</a>.</p>
+    <p><a href="install.html">Install</a> · <a href="guide.html">Guide</a> · <a href="https://github.com/Copse-SCM/copse">GitHub</a></p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

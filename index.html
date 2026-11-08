@@ -17,9 +17,9 @@
       <span>Copse</span>
     </a>
     <nav>
-      <a href="#install">Install</a>
-      <a href="https://github.com/Copse-SCM/copse/blob/main/docs/guide.md">Guide</a>
-      <a href="https://github.com/Copse-SCM/copse/releases/latest">Releases</a>
+      <a href="install.html">Install</a>
+      <a href="guide.html">Guide</a>
+      <a href="releases.html">Releases</a>
       <a href="https://github.com/Copse-SCM/copse">GitHub</a>
     </nav>
   </div>
@@ -40,10 +40,10 @@
         <code>brew install copse-scm/copse/copse</code>
       </div>
       <p class="actions">
-        <a class="button" href="#install">Install Copse</a>
-        <a class="button quiet" href="https://github.com/Copse-SCM/copse/blob/main/docs/guide.md">Read the guide</a>
+        <a class="button" href="install.html">Install Copse</a>
+        <a class="button quiet" href="guide.html">Read the guide</a>
       </p>
-      <p class="fine">Latest release: <a href="https://github.com/Copse-SCM/copse/releases/latest">2026.11.0</a> · macOS and Linux · Apache-2.0</p>
+      <p class="fine">Latest release: <a href="releases.html">2026.11.0</a> · macOS and Linux · Apache-2.0</p>
     </div>
   </section>
 
@@ -52,18 +52,22 @@
       <h2>What's different</h2>
       <div class="grid">
         <article>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>
           <h3>Faster than git</h3>
           <p>Three to four times faster <code>status</code>, two and a half to six times faster commits, and four times faster checkouts on a 50,000-file repository.</p>
         </article>
         <article>
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v6"/><path d="M12 15v6"/></svg>
           <h3>No staging area</h3>
           <p><code>commit</code> takes everything, the paths you name, or the changes you pick one at a time with <code>-p</code>.</p>
         </article>
         <article>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
           <h3>Undo for everything</h3>
           <p><code>copse undo</code> reverses the last commit, merge, rebase, reset or checkout. Anything that would throw work away keeps a backup first.</p>
         </article>
         <article>
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 8.2v7.6"/><path d="M18 10.2c0 4-6 3-11 6"/></svg>
           <h3>Works with git</h3>
           <p>GitHub, GitLab, and any git server over HTTPS or SSH, with signed commits, tags, submodules and LFS. Merges give the same results as git.</p>
         </article>
@@ -115,23 +119,24 @@
         <div>
           <h3>Homebrew</h3>
           <p>macOS and Linux.</p>
-          <pre><code>brew install copse-scm/copse/copse</code></pre>
+          <pre class="copyable"><code>brew install copse-scm/copse/copse</code></pre>
           <p class="note">For the daily build of main: <code>copse-scm/copse/copse-nightly</code>.</p>
         </div>
         <div>
           <h3>Download</h3>
-          <p>For macOS (Apple Silicon or Intel) or Linux (x86_64), from the <a href="https://github.com/Copse-SCM/copse/releases/latest">latest release</a>.</p>
-          <pre><code>tar xzf copse-*.tar.gz
+          <p>For macOS (Apple Silicon or Intel) or Linux (x86_64), from the <a href="releases.html">latest release</a>.</p>
+          <pre class="copyable"><code>tar xzf copse-*.tar.gz
 sudo mv copse-*/copse /usr/local/bin/</code></pre>
         </div>
         <div>
           <h3>From source</h3>
           <p>With Rust installed.</p>
-          <pre><code>cargo install --git https://github.com/Copse-SCM/copse</code></pre>
+          <pre class="copyable"><code>cargo install --git https://github.com/Copse-SCM/copse</code></pre>
         </div>
       </div>
+      <p class="note"><a href="install.html">More about installing</a>: checking downloads, the nightly build, upgrading.</p>
       <h3 class="tour-title">A quick tour</h3>
-      <pre class="tour"><code>copse clone https://github.com/you/project.git
+      <pre class="tour copyable"><code>copse clone https://github.com/you/project.git
 cd project
 copse status                  <span class="c"># what changed, and where you stand against origin</span>
 copse commit -m "Fix login"   <span class="c"># no staging step</span>
@@ -145,9 +150,9 @@ copse undo                    <span class="c"># changed your mind? undo the last
 <footer>
   <div class="wrap foot-row">
     <p>Copse is free software under the <a href="https://github.com/Copse-SCM/copse/blob/main/LICENSE">Apache License 2.0</a>.</p>
-    <p><a href="https://github.com/Copse-SCM/copse/blob/main/docs/guide.md">Guide</a> · <a href="https://github.com/Copse-SCM/copse">GitHub</a> · <a href="https://github.com/Copse-SCM/copse/blob/main/SECURITY.md">Security</a></p>
+    <p><a href="guide.html">Guide</a> · <a href="releases.html">Releases</a> · <a href="https://github.com/Copse-SCM/copse">GitHub</a> · <a href="https://github.com/Copse-SCM/copse/blob/main/SECURITY.md">Security</a></p>
   </div>
 </footer>
-
+<script src="site.js"></script>
 </body>
 </html>
