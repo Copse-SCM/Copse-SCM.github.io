@@ -198,3 +198,7 @@ td code { white-space: nowrap; }
   .toc a { border-left: 0; padding: 2px 0; }
   .toc a:hover { padding-left: 0; }
 }
+
+@media (max-width: 480px) {
+  .top nav { gap: 6px 16px; font-size: .95rem; }
+}
