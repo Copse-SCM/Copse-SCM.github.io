@@ -12,7 +12,7 @@ enum Line {
 }
 use Line::*;
 
-/// Real output from Copse 2026.11.0, run in a fresh repository.
+/// Real output from Copse (a 2026.11 nightly), run in a fresh repository.
 const SESSION: &[Line] = &[
     Cmd("copse status"),
     Out("On branch main"),

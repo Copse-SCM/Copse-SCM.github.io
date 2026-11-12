@@ -1,14 +1,14 @@
 use leptos::prelude::*;
-use leptos_meta::{Meta, Title};
+use leptos_meta::Title;
 
-use crate::components::{CopyBlock, CopyLine, InstallTabs, Terminal};
+use crate::components::{CopyBlock, CopyLine, Description, InstallTabs, Terminal};
 use crate::release;
 
 #[component]
 pub fn Home() -> impl IntoView {
     view! {
         <Title text="Copse: fast version control that works with git"/>
-        <Meta name="description" content="Copse is a fast version control system that works with GitHub, GitLab and any git server, with undo for everything and a built-in terminal interface."/>
+        <Description text="Copse is a fast version control system that works with GitHub, GitLab and any git server, with undo for everything and a built-in terminal interface."/>
         <Hero/>
         <Features/>
         <FromGit/>
@@ -99,11 +99,19 @@ fn Features() -> impl IntoView {
 
 /// How many times faster than git, from the benchmark on a 50,000-file
 /// repository: (what, at least, at most).
-const SPEED: &[(&str, f32, f32)] = &[("status", 3.0, 4.0), ("commit", 2.5, 6.0), ("checkout", 4.0, 4.0)];
+const SPEED: &[(&str, f32, f32)] = &[
+    ("status", 3.0, 4.0),
+    ("commit", 2.5, 6.0),
+    ("checkout", 4.0, 4.0),
+];
 const SPEED_SCALE: f32 = 6.0;
 
 fn times(x: f32) -> String {
-    if x.fract() == 0.0 { format!("{x:.0}") } else { format!("{x}") }
+    if x.fract() == 0.0 {
+        format!("{x:.0}")
+    } else {
+        format!("{x}")
+    }
 }
 
 /// The speed-ups as bars. Solid green runs to the slowest result; where there's
@@ -174,7 +182,10 @@ const FROM_GIT: &[(&str, &[&str], &[&str])] = &[
 #[component]
 fn FromGit() -> impl IntoView {
     let commands = |lines: &'static [&'static str]| {
-        lines.iter().map(|l| view! { <code>{*l}</code> }).collect_view()
+        lines
+            .iter()
+            .map(|l| view! { <code>{*l}</code> })
+            .collect_view()
     };
     let rows = FROM_GIT
         .iter()
@@ -234,7 +245,11 @@ fn wants_less_motion() -> bool {
 #[component]
 fn History() -> impl IntoView {
     let figure = NodeRef::<leptos::html::Figure>::new();
-    let start = if wants_less_motion() { Drawing::Still } else { Drawing::Waiting };
+    let start = if wants_less_motion() {
+        Drawing::Still
+    } else {
+        Drawing::Waiting
+    };
     let (drawing, set_drawing) = signal(start);
 
     // The drawing starts at the bottom (the first commit), so wait until the
@@ -244,16 +259,28 @@ fn History() -> impl IntoView {
         if drawing.get_untracked() != Drawing::Waiting {
             return;
         }
-        let Some(el) = figure.get_untracked() else { return };
-        let height = window().inner_height().ok().and_then(|h| h.as_f64()).unwrap_or(0.0);
+        let Some(el) = figure.get_untracked() else {
+            return;
+        };
+        let height = window()
+            .inner_height()
+            .ok()
+            .and_then(|h| h.as_f64())
+            .unwrap_or(0.0);
         let rect = el.get_bounding_client_rect();
         if rect.bottom() <= height || rect.top() <= height * 0.3 {
             set_drawing.set(Drawing::Drawn);
         }
     };
     request_animation_frame(check);
+    // Scrolling usually brings it into view, but so can resizing the window,
+    // turning a phone or zooming.
     let scroll = window_event_listener(leptos::ev::scroll, move |_| check());
-    on_cleanup(move || scroll.remove());
+    let resize = window_event_listener(leptos::ev::resize, move |_| check());
+    on_cleanup(move || {
+        scroll.remove();
+        resize.remove();
+    });
 
     // Each mark's delay, in seconds, so they appear as the lines reach them.
     let d = |secs: f32| format!("--d: {secs}s");
@@ -266,9 +293,10 @@ fn History() -> impl IntoView {
                     class:waiting=move || drawing.get() == Drawing::Waiting
                     class:drawn=move || drawing.get() == Drawing::Drawn
                     node_ref=figure
+                    role="img"
                     aria-label="A commit graph: a main line with a feature branch that is merged back in"
                 >
-                    <svg viewBox="0 0 260 300" role="img">
+                    <svg viewBox="0 0 260 300" aria-hidden="true">
                         <path class="line main" pathLength="1" style=d(0.0) d="M 70 270 L 70 30"/>
                         <path class="line branch" pathLength="1" style=d(0.35) d="M 70 220 C 70 195, 170 200, 170 175 L 170 115 C 170 90, 70 95, 70 70"/>
                         <circle class="dot" style=d(0.05) cx="70" cy="270" r="9"/>

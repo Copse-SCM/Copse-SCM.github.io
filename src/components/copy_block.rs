@@ -5,7 +5,9 @@ use std::time::Duration;
 /// Puts `text` on the clipboard, then shows "Copied" through `set_copied`
 /// for a moment.
 pub fn copy_text(text: String, set_copied: WriteSignal<bool>) {
-    let Some(window) = web_sys::window() else { return };
+    let Some(window) = web_sys::window() else {
+        return;
+    };
     let promise = window.navigator().clipboard().write_text(&text);
     leptos::task::spawn_local(async move {
         if wasm_bindgen_futures::JsFuture::from(promise).await.is_ok() {
@@ -34,6 +36,7 @@ pub fn CopyBlock(#[prop(optional, into)] class: String, children: Children) -> i
             <button class="copy" type="button" on:click=copy>
                 {move || if copied.get() { "Copied" } else { "Copy" }}
             </button>
+            <Announce copied=copied/>
         </pre>
     }
 }
@@ -53,7 +56,19 @@ pub fn CopyLine(command: &'static str) -> impl IntoView {
             >
                 {move || if copied.get() { "Copied" } else { "Copy" }}
             </button>
+            <Announce copied=copied/>
         </div>
+    }
+}
+
+/// Tells screen-reader users the copy worked: the button's own label change
+/// isn't read out, but a polite live region is.
+#[component]
+fn Announce(copied: ReadSignal<bool>) -> impl IntoView {
+    view! {
+        <span class="visually-hidden" role="status" aria-live="polite">
+            {move || if copied.get() { "Copied to the clipboard" } else { "" }}
+        </span>
     }
 }
 

@@ -29,8 +29,10 @@ trunk build --release   # the finished site, in dist/
 ## Publishing
 
 `.github/workflows/pages.yml` builds the site with Trunk and deploys it to GitHub Pages
-on each push to `main`. It also copies `index.html` to `404.html`, so Pages hands
-addresses like `/guide` to the app's router.
+on each push to `main`. It also saves `index.html` as `guide.html`, `install.html`,
+`releases.html` and `security.html`, which Pages serves for `/guide` and the rest with
+a proper 200 status, and as `404.html` for any other address. The repository's Pages
+source must be set to "GitHub Actions" (Settings → Pages) before the first deploy.
 
 Design: a light theme, a Times New Roman–style serif, and the logo's greens
 (#0C5C27, #3DBA6E). The commit graph appears only in its one illustrated section.

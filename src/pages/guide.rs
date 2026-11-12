@@ -2,15 +2,15 @@
 
 use leptos::ev;
 use leptos::prelude::*;
-use leptos_meta::{Meta, Title};
+use leptos_meta::Title;
 
-use crate::components::CopyBlock;
+use crate::components::{CopyBlock, Description};
 
 #[component]
 pub fn Guide() -> impl IntoView {
     view! {
         <Title text="Copse guide"/>
-        <Meta name="description" content="How to use Copse: committing, history, branches, merging, undo, remotes and GitHub, and the interactive screen."/>
+        <Description text="How to use Copse: committing, history, branches, merging, undo, remotes and GitHub, and the interactive screen."/>
         <section class="page-head">
             <div class="wrap">
                 <h1>
@@ -385,8 +385,15 @@ fn section_in_view() -> &'static str {
     let window = window();
     let doc = document();
     let scrolled = window.scroll_y().unwrap_or(0.0);
-    let height = window.inner_height().ok().and_then(|h| h.as_f64()).unwrap_or(0.0);
-    let page = doc.document_element().map(|e| e.scroll_height() as f64).unwrap_or(0.0);
+    let height = window
+        .inner_height()
+        .ok()
+        .and_then(|h| h.as_f64())
+        .unwrap_or(0.0);
+    let page = doc
+        .document_element()
+        .map(|e| e.scroll_height() as f64)
+        .unwrap_or(0.0);
     if scrolled > 0.0 && scrolled + height >= page - 2.0 {
         return SECTIONS[SECTIONS.len() - 1].0;
     }

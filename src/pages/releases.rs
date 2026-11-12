@@ -1,16 +1,16 @@
 //! Carried over from the original releases.html.
 
 use leptos::prelude::*;
-use leptos_meta::{Meta, Title};
+use leptos_meta::Title;
 
-use crate::components::{CopyBlock, Downloads};
+use crate::components::{CopyBlock, Description, Downloads};
 use crate::release;
 
 #[component]
 pub fn Releases() -> impl IntoView {
     view! {
         <Title text="Copse releases"/>
-        <Meta name="description" content="Copse releases and nightly builds, with downloads and what changed."/>
+        <Description text="Copse releases and nightly builds, with downloads and what changed."/>
         <section class="page-head">
             <div class="wrap">
                 <h1>

@@ -44,7 +44,10 @@ pub const DOWNLOADS: &[Download] = &[
 const RELEASES: &str = "https://github.com/Copse-SCM/copse/releases";
 
 pub fn download_url(d: &Download) -> String {
-    format!("{RELEASES}/download/v{VERSION}/copse-{VERSION}-{}.tar.gz", d.triple)
+    format!(
+        "{RELEASES}/download/v{VERSION}/copse-{VERSION}-{}.tar.gz",
+        d.triple
+    )
 }
 
 pub fn checksums_url() -> String {

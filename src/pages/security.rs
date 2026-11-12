@@ -1,15 +1,15 @@
 //! Carried over from the original security.html.
 
 use leptos::prelude::*;
-use leptos_meta::{Meta, Title};
+use leptos_meta::Title;
 
-use crate::components::CopyBlock;
+use crate::components::{CopyBlock, Description};
 
 #[component]
 pub fn Security() -> impl IntoView {
     view! {
         <Title text="Copse security"/>
-        <Meta name="description" content="How Copse keeps your work and your machine safe, how to check what you download, and how to report a security problem."/>
+        <Description text="How Copse keeps your work and your machine safe, how to check what you download, and how to report a security problem."/>
         <section class="page-head">
             <div class="wrap">
                 <h1>

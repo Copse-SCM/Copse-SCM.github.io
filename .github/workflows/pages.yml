@@ -36,10 +36,15 @@ jobs:
       - name: Build
         run: trunk build --release
 
-      # Pages serves 404.html for addresses with no file, so the app's own
-      # router can show /guide, /install and the rest.
-      - name: Add the fallback page
-        run: cp dist/index.html dist/404.html
+      # Pages serves /guide from guide.html, so a copy of the app under each
+      # page's name gives those addresses a proper 200 status (search engines
+      # and link previews skip pages that answer 404). 404.html catches
+      # anything else, and the app shows its own "Page not found".
+      - name: Add a page for each address
+        run: |
+          for page in install guide releases security 404; do
+            cp dist/index.html "dist/$page.html"
+          done
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

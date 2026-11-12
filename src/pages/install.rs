@@ -1,16 +1,16 @@
 //! Carried over from the original install.html.
 
 use leptos::prelude::*;
-use leptos_meta::{Meta, Title};
+use leptos_meta::Title;
 
-use crate::components::{CopyBlock, Downloads};
+use crate::components::{CopyBlock, Description, Downloads};
 use crate::release;
 
 #[component]
 pub fn Install() -> impl IntoView {
     view! {
         <Title text="Install Copse"/>
-        <Meta name="description" content="Install Copse with Homebrew, from a release download, or from source."/>
+        <Description text="Install Copse with Homebrew, from a release download, or from source."/>
         <section class="page-head">
             <div class="wrap">
                 <h1>
