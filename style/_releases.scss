@@ -1,0 +1,17 @@
+/* Releases */
+.release { border: 1px solid var(--rule); border-radius: 6px; padding: 26px; background: #fff; margin-bottom: 24px; }
+.release header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.release h2 { margin: 0; }
+.tag { display: inline-block; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--green); border: 1px solid var(--green-light); border-radius: 20px; padding: 1px 10px; }
+.tag.dev { color: var(--muted); border-color: var(--rule); }
+.downloads { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+.downloads a { display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 4px; }
+.downloads a:hover { border-color: var(--green-light); background: var(--green-wash); }
+.downloads .size { margin-left: auto; color: var(--muted); font-size: .85rem; }
+
+
+/* The download for the visitor's own computer. */
+.downloads .yours a { border-color: var(--green-light); background: var(--green-wash); }
+.downloads .tag { margin-left: 4px; font-size: .7rem; padding: 0 8px; }
+.download-hint { font-size: .92rem; color: var(--muted); margin: 12px 0 0; }
+.downloads .size { white-space: nowrap; }

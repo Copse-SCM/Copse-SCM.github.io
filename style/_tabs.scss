@@ -1,0 +1,23 @@
+/* The install tabs on the home page. The tabs are underlined like the nav. */
+.install-tabs { margin-top: 20px; max-width: 760px; }
+.tab-list { display: flex; gap: 26px; border-bottom: 1px solid var(--rule); overflow-x: auto; }
+.tab-list [role="tab"] {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 6px 0 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover { color: var(--green); }
+  &[aria-selected="true"] { color: var(--green); border-bottom-color: var(--green); }
+  &:focus-visible { outline: 2px solid var(--green-light); outline-offset: 2px; }
+}
+.tab-panel {
+  padding-top: 18px;
+  p { color: var(--muted); margin: 0 0 .7em; }
+  .note { font-size: .9rem; margin-top: .9em; }
+  pre { margin: 0; }
+}

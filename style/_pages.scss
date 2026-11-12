@@ -1,0 +1,21 @@
+/* ---------------------------------------------------------------- inner pages */
+.page-head { padding: 56px 0 36px; border-bottom: 1px solid var(--rule); }
+.page-head p { color: var(--muted); max-width: 640px; font-size: 1.12rem; margin: 0; }
+.page-body { padding: 48px 0 80px; }
+.page-body h2 { margin-top: 1.6em; }
+.page-body h2:first-child { margin-top: 0; }
+.page-body p, .page-body li { color: var(--ink); }
+.page-body .muted { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 24px 0 8px; }
+.card { border: 1px solid var(--rule); border-radius: 6px; padding: 22px; background: #fff; }
+.card:hover { border-color: var(--green-light); box-shadow: 0 2px 14px rgba(27, 31, 28, .07); transform: translateY(-2px); }
+.card h3 { display: flex; align-items: center; gap: 4px; }
+.card pre { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: 0; }
+.note-box { border-left: 3px solid var(--green-light); background: var(--green-wash); padding: 14px 18px; border-radius: 0 4px 4px 0; margin: 20px 0; }
+.note-box p { margin: 0; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: .95rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: normal; color: var(--green); }
+td code { white-space: nowrap; }
+.table-scroll { overflow-x: auto; }
+

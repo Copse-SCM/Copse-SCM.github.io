@@ -5,156 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Copse: fast version control that works with git</title>
   <meta name="description" content="Copse is a fast version control system that works with GitHub, GitLab and any git server, with undo for everything and a built-in terminal interface.">
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+
+  <link data-trunk rel="rust" data-wasm-opt="z">
+  <link data-trunk rel="scss" href="style/main.scss">
+  <link data-trunk rel="copy-dir" href="public/images">
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap top-row">
-    <a class="brand" href="./">
-      <img src="images/logo.svg" alt="" width="34" height="34">
-      <span>Copse</span>
-    </a>
-    <nav>
-      <a href="install.html">Install</a>
-      <a href="guide.html">Guide</a>
-      <a href="releases.html">Releases</a>
-      <a href="security.html">Security</a>
-      <a href="https://github.com/Copse-SCM/copse">GitHub</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <section class="hero">
-    <div class="wrap">
-      <p class="kicker">Version control, written in Rust</p>
-      <h1>Fast version control<br>that works with git.</h1>
-      <p class="lede">
-        Clone from GitHub, commit, branch, merge and push, and your teammates who use git
-        won't notice a thing. Copse has no staging area, an undo for everything, and a
-        terminal interface built in.
-      </p>
-      <div class="install-line">
-        <code>brew install copse-scm/copse/copse</code>
-      </div>
-      <p class="actions">
-        <a class="button" href="install.html">Install Copse</a>
-        <a class="button quiet" href="guide.html">Read the guide</a>
-      </p>
-      <p class="fine">Latest release: <a href="releases.html">2026.11.0</a> · macOS and Linux · Apache-2.0</p>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="wrap">
-      <h2>What's different</h2>
-      <div class="grid">
-        <article>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>
-          <h3>Faster than git</h3>
-          <p>Three to four times faster <code>status</code>, two and a half to six times faster commits, and four times faster checkouts on a 50,000-file repository.</p>
-        </article>
-        <article>
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v6"/><path d="M12 15v6"/></svg>
-          <h3>No staging area</h3>
-          <p><code>commit</code> takes everything, the paths you name, or the changes you pick one at a time with <code>-p</code>.</p>
-        </article>
-        <article>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
-          <h3>Undo for everything</h3>
-          <p><code>copse undo</code> reverses the last commit, merge, rebase, pull or reset. Anything that would throw work away keeps a backup first.</p>
-        </article>
-        <article>
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 8.2v7.6"/><path d="M18 10.2c0 4-6 3-11 6"/></svg>
-          <h3>Works with git</h3>
-          <p>GitHub, GitLab, and any git server over HTTPS or SSH, with signed commits, tags, submodules and LFS. Merges give the same results as git.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="history">
-    <div class="wrap history-row">
-      <figure class="graph" aria-label="A commit graph: a main line with a feature branch that is merged back in">
-        <svg viewBox="0 0 260 300" role="img">
-          <title>A commit graph</title>
-          <path class="line main" d="M 70 270 L 70 30" />
-          <path class="line branch" d="M 70 220 C 70 195, 170 200, 170 175 L 170 115 C 170 90, 70 95, 70 70" />
-          <circle class="dot" cx="70" cy="270" r="9" />
-          <circle class="dot" cx="70" cy="220" r="9" />
-          <circle class="dot soft" cx="170" cy="175" r="9" />
-          <circle class="dot soft" cx="170" cy="115" r="9" />
-          <circle class="dot" cx="70" cy="145" r="9" />
-          <circle class="dot ring" cx="70" cy="70" r="11" />
-          <circle class="dot" cx="70" cy="30" r="9" />
-          <text x="95" y="274">first commit</text>
-          <text x="95" y="149">fix login</text>
-          <text x="192" y="179">feature</text>
-          <text x="95" y="74">merge feature</text>
-          <text x="95" y="34">main</text>
-        </svg>
-      </figure>
-      <div class="history-text">
-        <h2>Every step can be taken back</h2>
-        <p>
-          Copse keeps a record of every move your branch makes: each commit, merge,
-          rebase, pull and reset. <code>copse undo</code> reverses the last one, and running
-          it again redoes it. <code>copse reflog</code> lists them all, and the Undo screen
-          can go back to any of them.
-        </p>
-        <p>
-          Run <code>copse</code> on its own for a screen with your changes, the commit graph,
-          your branches, and that undo timeline. Pick single lines to commit, and pull or push
-          without leaving it.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="install" id="install">
-    <div class="wrap">
-      <h2>Install</h2>
-      <div class="install-grid">
-        <div>
-          <h3>Homebrew</h3>
-          <p>macOS and Linux.</p>
-          <pre class="copyable"><code>brew install copse-scm/copse/copse</code></pre>
-          <p class="note">For the daily build of main: <code>copse-scm/copse/copse-nightly</code>.</p>
-        </div>
-        <div>
-          <h3>Download</h3>
-          <p>For macOS (Apple Silicon or Intel) or Linux (x86_64), from the <a href="releases.html">latest release</a>.</p>
-          <pre class="copyable"><code>tar xzf copse-*.tar.gz
-sudo mv copse-*/copse /usr/local/bin/</code></pre>
-        </div>
-        <div>
-          <h3>From source</h3>
-          <p>With Rust installed.</p>
-          <pre class="copyable"><code>cargo install --git https://github.com/Copse-SCM/copse</code></pre>
-        </div>
-      </div>
-      <p class="note"><a href="install.html">More about installing</a>: checking downloads, the nightly build, upgrading.</p>
-      <h3 class="tour-title">A quick tour</h3>
-      <pre class="tour copyable"><code>copse clone https://github.com/you/project.git
-cd project
-copse status                  <span class="c"># what changed, and where you stand against origin</span>
-copse commit -m "Fix login"   <span class="c"># no staging step</span>
-copse push
-copse undo                    <span class="c"># changed your mind? undo the last move</span></code></pre>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap foot-row">
-    <p>Copse is free software under the <a href="https://github.com/Copse-SCM/copse/blob/main/LICENSE">Apache License 2.0</a>.</p>
-    <p><a href="guide.html">Guide</a> · <a href="releases.html">Releases</a> · <a href="https://github.com/Copse-SCM/copse">GitHub</a> · <a href="security.html">Security</a></p>
-  </div>
-</footer>
-<script src="site.js"></script>
+  <noscript>
+    <p style="padding: 24px; font-family: serif">
+      This site needs JavaScript. Copse's source, docs and releases are all on
+      <a href="https://github.com/Copse-SCM/copse">GitHub</a>.
+    </p>
+  </noscript>
 </body>
 </html>

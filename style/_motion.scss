@@ -1,0 +1,29 @@
+/* ---------------------------------------------------------------- motion */
+/* Small, quick, and off for people who ask for less motion. */
+a, .button, .card, .grid article, .icon { transition: color .18s ease, background-color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.button:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(12, 92, 39, .18); }
+.button:active { transform: translateY(0); box-shadow: none; }
+.top nav a { position: relative; padding-bottom: 2px; }
+.top nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 1px; background: var(--green); transition: right .2s ease; }
+.top nav a:hover::after, .top nav a[aria-current="page"]::after { right: 0; }
+.top nav a[aria-current="page"] { color: var(--green); }
+.grid article { padding: 18px; margin: -18px; border-radius: 6px; }
+.grid article:hover { background: #fff; box-shadow: 0 2px 14px rgba(27, 31, 28, .07); transform: translateY(-2px); }
+.grid article:hover .icon { color: var(--green-light); transform: rotate(-6deg); }
+.brand img { transition: transform .35s ease; }
+.brand:hover img { transform: rotate(-12deg); }
+.copyable { position: relative; }
+.copy { position: absolute; top: 8px; right: 8px; font: 13px var(--serif); color: var(--muted); background: #fff; border: 1px solid var(--rule); border-radius: 3px; padding: 2px 8px; cursor: pointer; opacity: 0; transition: opacity .15s ease, color .15s ease; }
+.copyable:hover .copy, .copy:focus { opacity: 1; }
+.copy:hover { color: var(--green); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::after { transition: none !important; animation: none !important; }
+}
+
+
+/* Touch screens have no hover, so the copy buttons stay in view there. */
+@media (hover: none) {
+  .copy { opacity: 1; }
+  /* Give the button a row of its own, so it doesn't cover a long first line. */
+  pre.copyable { padding-top: 2.6em; }
+}

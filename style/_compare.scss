@@ -1,0 +1,37 @@
+/* "Coming from git": the same jobs, side by side. */
+.from-git { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+.section-lede { color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+.from-git .note { font-size: .9rem; color: var(--muted); margin: 16px 0 0; }
+
+.compare {
+  margin: 0;
+  font-size: 1rem;
+  thead th { font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; }
+  tbody th { color: var(--ink); width: 30%; padding-right: 24px; }
+  td { width: 35%; }
+  td code { display: table; margin: 2px 0; white-space: nowrap; }
+  td.git code { color: var(--muted); }
+  td.copse code { background: var(--green-wash); color: var(--green); }
+  tbody tr:hover { background: #fff; }
+}
+
+/* On a phone, each job becomes a small card: the job, then git, then Copse. */
+@media (max-width: 720px) {
+  .from-git { padding: 52px 0; }
+  .compare {
+    thead { display: none; }
+    tr { display: block; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+    tbody th, td { display: block; width: auto; border: 0; padding: 2px 0; }
+    tbody th { margin-bottom: 6px; }
+    td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    td code { white-space: normal; overflow-wrap: anywhere; }
+  }
+}

@@ -1,0 +1,18 @@
+/* copse: a light, serif design in the logo's greens. */
+:root {
+  --green: #0C5C27;
+  --green-light: #3DBA6E;
+  --green-wash: #EEF6F0;
+  --ink: #1B1F1C;
+  --muted: #5B635D;
+  --rule: #DCE3DD;
+  --paper: #FCFCF9;
+  --code-bg: #F2F4F1;
+  --serif: "Times New Roman", Times, "Liberation Serif", serif;
+  --header-h: 64px; /* the header's height while it's pinned */
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (max-width: 720px) {
+  :root { --header-h: 0px; }
+}

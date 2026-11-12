@@ -1,0 +1,135 @@
+/* Hero */
+.hero { padding: 80px 0 72px; border-bottom: 1px solid var(--rule); }
+.kicker { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; color: var(--green); margin: 0 0 18px; }
+.lede { max-width: 640px; font-size: 1.2rem; color: var(--muted); margin: 0 0 28px; }
+.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(2.3rem, 4.6vw, 3.4rem); }
+
+/* The install command, with a Copy button that's always there. */
+.copy-line {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--green);
+  background: #fff;
+  code { background: none; font-size: 1rem; padding: 0.6em 0.9em; white-space: nowrap; overflow-x: auto; }
+}
+.copy-line-button {
+  align-self: stretch;
+  font: 0.9rem var(--serif);
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--rule);
+  padding: 0 14px;
+  cursor: pointer;
+  &:hover, &:focus-visible { color: var(--green); background: var(--green-wash); }
+}
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0 18px; }
+.button {
+  display: inline-block;
+  padding: 0.55em 1.2em;
+  border-radius: 3px;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid var(--green);
+}
+.button:hover { background: #0a4a20; color: #fff; }
+.button.quiet { background: transparent; color: var(--green); }
+.button.quiet:hover { background: var(--green-wash); color: var(--green); }
+.fine { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+/* Features */
+.features { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 36px 36px; margin-top: 28px; }
+.grid p { margin: 0; color: var(--muted); }
+
+/* The illustrated history section (the only place a graph appears) */
+.history { padding: 72px 0; background: var(--green-wash); border-bottom: 1px solid var(--rule); }
+.history-row { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 56px; align-items: center; }
+.graph { margin: 0; }
+.graph svg { width: 100%; height: auto; display: block; }
+.graph .line { fill: none; stroke-width: 5; stroke-linecap: round; }
+.graph .main { stroke: var(--green); }
+.graph .branch { stroke: var(--green-light); }
+.graph .dot { fill: var(--green); }
+.graph .dot.soft { fill: var(--green-light); }
+.graph .dot.ring { fill: var(--paper); stroke: var(--green); stroke-width: 5; }
+.graph text { font-family: var(--serif); font-size: 15px; fill: var(--ink); }
+.history-text p { color: var(--muted); max-width: 560px; }
+
+/* Install */
+.install { padding: 72px 0; }
+.install .tour { margin-bottom: 0; }
+.install > .wrap > .note { margin-top: 18px; }
+.tour-title { margin-top: 40px; }
+.tour .c { color: #6E7A71; }
+
+
+@media (max-width: 900px) {
+  .hero-row { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 18px; }
+  .hero { padding: 56px 0 52px; }
+  /* The same rhythm as the desktop sections, scaled down for a small screen. */
+  .features, .from-git, .history, .install { padding: 52px 0; }
+  .history-row { grid-template-columns: 1fr; gap: 28px; }
+  .graph { max-width: 240px; }
+  .copy-line code { font-size: 0.85rem; }
+}
+
+/* Keep the whole install command visible on a phone. */
+@media (max-width: 420px) {
+  .copy-line code { font-size: 12.5px; padding: 0.7em 0.7em; }
+  .copy-line-button { padding: 0 10px; font-size: .85rem; }
+}
+
+/* The speed-up bars in "Faster than git". */
+.speed { margin: 4px 0 0; }
+/* One grid for all three rows, so the bars line up and get the most room. */
+.speed-rows {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 9px 8px;
+}
+.speed-row { display: contents; }
+.speed-what { background: none; padding: 0; font-size: .74rem; color: var(--ink); }
+.speed-track { position: relative; height: 10px; }
+.speed-bar {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--green-light);
+  border-radius: 0 4px 4px 0;
+  overflow: hidden;
+}
+.speed-solid { display: block; height: 100%; background: var(--green); }
+.speed-git {
+  position: absolute; top: -3px; bottom: -3px; width: 2px; margin-left: -1px;
+  background: var(--ink); opacity: .55; z-index: 1;
+}
+.speed-value { font-size: .85rem; color: var(--ink); text-align: right; white-space: nowrap; }
+.speed figcaption { font-size: .82rem; color: var(--muted); line-height: 1.4; margin-top: 10px; }
+
+/* The commit graph draws itself once: the main line climbs, the branch
+   leaves and rejoins, and each commit appears as a line reaches it. Before
+   it's on screen ("waiting") everything is hidden; without JavaScript, or
+   with reduced motion, neither class is set and the graph is just there. */
+.graph.waiting {
+  .line { stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
+  .dot { transform: scale(0); }
+  text { opacity: 0; }
+}
+.graph .dot { transform-box: fill-box; transform-origin: center; }
+.graph.drawn {
+  .line {
+    transition: stroke-dashoffset .9s cubic-bezier(.45, 0, .25, 1) var(--d), opacity 0s linear var(--d);
+  }
+  .line.main { transition-duration: 1.25s, 0s; }
+  .dot { transition: transform .35s cubic-bezier(.3, 1.5, .5, 1) var(--d); }
+  text { transition: opacity .4s ease var(--d); }
+}
+.graph .line { stroke-dasharray: 1; stroke-dashoffset: 0; }

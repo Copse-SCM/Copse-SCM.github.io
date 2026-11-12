@@ -1,0 +1,39 @@
+/* The guide: contents on the left, text on the right. */
+.guide-row { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 56px; }
+.toc { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; font-size: .95rem; }
+.toc p { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--muted); margin: 0 0 10px; }
+.toc a { display: block; padding: 4px 0 4px 12px; border-left: 2px solid var(--rule); color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--green); border-left-color: var(--green-light); padding-left: 16px; }
+.guide h2 { padding-top: 8px; }
+.guide section { margin-bottom: 40px; }
+
+
+@media (max-width: 820px) {
+  .guide-row { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .toc { position: static; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .toc p { width: 100%; }
+  .toc a { border-left: 0; padding: 2px 0; }
+  .toc a:hover { padding-left: 0; }
+}
+
+
+/* The section being read: green, with its marker bar filled in. */
+.toc a.here { color: var(--green); border-left-color: var(--green); }
+@media (max-width: 820px) {
+  .toc a.here { text-decoration: underline; text-underline-offset: 4px; }
+}
+
+/* A # beside each heading, for linking straight to it. It shows on hover,
+   or when it has keyboard focus. */
+.guide h2 .anchor {
+  margin-left: .35em;
+  font-size: .7em;
+  color: var(--green-light);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.guide h2:hover .anchor, .guide h2 .anchor:focus-visible { opacity: 1; }
+@media (hover: none) {
+  .guide h2 .anchor { opacity: .6; }
+}
