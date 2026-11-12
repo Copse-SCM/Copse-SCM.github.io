@@ -10,10 +10,21 @@ use crate::pages::{Guide, Home, Install, NotFound, Releases, Security};
 pub fn App() -> impl IntoView {
     provide_meta_context();
 
+    // "Skip to content" moves keyboard focus into the page itself, so the next
+    // Tab goes to the first link in the content, not back through the header.
+    let main = NodeRef::<leptos::html::Main>::new();
+    let skip = move |ev: leptos::ev::MouseEvent| {
+        ev.prevent_default();
+        if let Some(main) = main.get() {
+            let _ = main.focus();
+        }
+    };
+
     view! {
         <Router>
+            <a class="skip-link" href="#content" on:click=skip>"Skip to content"</a>
             <Header/>
-            <main>
+            <main id="content" tabindex="-1" node_ref=main>
                 <Routes fallback=NotFound>
                     <Route path=path!("/") view=Home/>
                     <Route path=path!("/install") view=Install/>

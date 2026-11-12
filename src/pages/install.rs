@@ -27,10 +27,10 @@ pub fn Install() -> impl IntoView {
         </section>
         <section class="page-body">
             <div class="wrap">
-                <div class="cards">
+                <div class="cards ways">
                     <div class="card">
                         <h3>
-                            <svg class="icon small" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                 <path d="M5 9h14l-1.5 11h-11z"/>
                                 <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
                             </svg>
@@ -49,7 +49,7 @@ pub fn Install() -> impl IntoView {
                     </div>
                     <div class="card">
                         <h3>
-                            <svg class="icon small" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                 <path d="M12 4v11"/>
                                 <path d="M7 10l5 5 5-5"/>
                                 <path d="M5 20h14"/>
@@ -73,7 +73,7 @@ pub fn Install() -> impl IntoView {
                     </div>
                     <div class="card">
                         <h3>
-                            <svg class="icon small" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                 <path d="M8 7l-5 5 5 5"/>
                                 <path d="M16 7l5 5-5 5"/>
                                 <path d="M13.5 5l-3 14"/>

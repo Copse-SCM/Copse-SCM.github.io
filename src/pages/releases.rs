@@ -58,7 +58,7 @@ pub fn Releases() -> impl IntoView {
                     <ul class="downloads">
                         <li>
                             <a href="https://github.com/Copse-SCM/copse/releases/tag/nightly">
-                                <svg class="icon small" viewBox="0 0 24 24">
+                                <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                     <path d="M12 4v11"/>
                                     <path d="M7 10l5 5 5-5"/>
                                     <path d="M5 20h14"/>

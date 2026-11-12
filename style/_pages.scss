@@ -19,3 +19,41 @@ th { font-weight: normal; color: var(--green); }
 td code { white-space: nowrap; }
 .table-scroll { overflow-x: auto; }
 
+
+/* Comfortable reading: paragraphs and lists stop at about 70 characters a
+   line. Code, tables, cards and download lists keep the full width. */
+.page-body p,
+.page-body li:not(.downloads li),
+.page-body .note-box {
+  max-width: 68ch;
+}
+.page-body .card p,
+.page-body .release p.muted { max-width: none; }
+
+/* The install page's three ways to install: one row each, the description
+   on the left and the command on the right, so commands never wrap. */
+.cards.ways { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.ways .card {
+  display: grid;
+  grid-template-columns: minmax(0, 290px) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 4px 32px;
+  align-items: start;
+  h3 { grid-column: 1; margin-bottom: 4px; }
+  p { grid-column: 1; margin: 0; }
+  pre {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin: 0;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+  }
+}
+@media (max-width: 720px) {
+  .ways .card {
+    grid-template-columns: minmax(0, 1fr);
+    pre { grid-column: 1; grid-row: auto; margin-top: 10px; }
+  }
+}

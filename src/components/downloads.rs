@@ -79,13 +79,13 @@ pub fn Downloads(#[prop(optional)] checksums: bool) -> impl IntoView {
             let yours = move || system.get().matches(d.target);
             let icon = match d.target {
                 Target::LinuxX86 => view! {
-                    <svg class="icon small" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                         <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9l3 3-3 3"/><path d="M13 15h3"/>
                     </svg>
                 }
                 .into_any(),
                 _ => view! {
-                    <svg class="icon small" viewBox="0 0 24 24">
+                    <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                         <rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/><path d="M12 17v4"/>
                     </svg>
                 }
@@ -114,7 +114,7 @@ pub fn Downloads(#[prop(optional)] checksums: bool) -> impl IntoView {
             {checksums.then(|| view! {
                 <li>
                     <a href=release::checksums_url()>
-                        <svg class="icon small" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                             <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/>
                         </svg>
                         "SHA256SUMS"

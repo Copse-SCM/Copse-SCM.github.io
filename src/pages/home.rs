@@ -54,12 +54,12 @@ fn Features() -> impl IntoView {
                 <h2>"What's different"</h2>
                 <div class="grid">
                     <article>
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>
+                        <svg aria-hidden="true" class="icon" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg>
                         <h3>"Faster than git"</h3>
                         <SpeedBars/>
                     </article>
                     <article>
-                        <svg class="icon" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="icon" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="3"/><path d="M12 3v6"/><path d="M12 15v6"/>
                         </svg>
                         <h3>"No staging area"</h3>
@@ -70,7 +70,7 @@ fn Features() -> impl IntoView {
                         </p>
                     </article>
                     <article>
-                        <svg class="icon" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="icon" viewBox="0 0 24 24">
                             <path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>
                         </svg>
                         <h3>"Undo for everything"</h3>
@@ -81,7 +81,7 @@ fn Features() -> impl IntoView {
                         </p>
                     </article>
                     <article>
-                        <svg class="icon" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="icon" viewBox="0 0 24 24">
                             <circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/>
                             <circle cx="18" cy="8" r="2.2"/><path d="M6 8.2v7.6"/><path d="M18 10.2c0 4-6 3-11 6"/>
                         </svg>

@@ -41,7 +41,7 @@ pub fn Security() -> impl IntoView {
                 <div class="cards">
                     <div class="card">
                         <h3>
-                            <svg class="icon small" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                 <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/>
                                 <path d="M9 12l2 2 4-4"/>
                             </svg>
@@ -53,7 +53,7 @@ pub fn Security() -> impl IntoView {
                     </div>
                     <div class="card">
                         <h3>
-                            <svg class="icon small" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                 <rect x="4" y="10" width="16" height="10" rx="1.5"/>
                                 <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
                             </svg>
@@ -69,7 +69,7 @@ pub fn Security() -> impl IntoView {
                     </div>
                     <div class="card">
                         <h3>
-                            <svg class="icon small" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="icon small" viewBox="0 0 24 24">
                                 <path d="M9 14L4 9l5-5"/>
                                 <path d="M4 9h10a6 6 0 0 1 0 12h-3"/>
                             </svg>

@@ -13,7 +13,7 @@
   white-space: nowrap;
   &:hover { color: var(--green); }
   &[aria-selected="true"] { color: var(--green); border-bottom-color: var(--green); }
-  &:focus-visible { outline: 2px solid var(--green-light); outline-offset: 2px; }
+  &:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 }
 .tab-panel {
   padding-top: 18px;
