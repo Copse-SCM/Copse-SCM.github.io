@@ -63,7 +63,7 @@
       <p>Helpful things to include in a report: what an attacker could do, the version (<code>copse version</code>), and steps or a repository that shows it.</p>
 
       <h2>Signing in</h2>
-      <p>Copse uses git's own credential helpers, so a login you've saved for git (for example in the macOS Keychain) works for Copse too, and Copse never stores passwords itself. Over SSH it uses your SSH key, as git does. It asks for a login only when the server needs one, and it never prints a password.</p>
+      <p>Copse uses git's own credential helpers, so a login you've saved for git (for example in the macOS Keychain) works for Copse too, and Copse doesn't keep a password store of its own. Over SSH it uses your SSH key, as git does. It asks for a login only when the server needs one, and it never prints a password.</p>
       <p class="muted">A login written into an address (<code>https://user:token@host/…</code>) works, but it's kept in <code>.copse/remotes</code>, so a credential helper is the safer choice.</p>
 
       <h2>Signed commits and tags</h2>

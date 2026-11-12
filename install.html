@@ -78,12 +78,12 @@ sudo mv copse-*/copse /usr/local/bin/</code></pre>
       <p class="muted"><code>copse</code> and <code>copse-nightly</code> both provide the <code>copse</code> command, so install one or the other. The nightly is also on the <a href="https://github.com/Copse-SCM/copse/releases/tag/nightly">nightly release page</a>.</p>
 
       <h2>Upgrading and removing</h2>
-      <table>
+      <div class="table-scroll"><table>
         <tr><th>Installed with</th><th>Upgrade</th><th>Remove</th></tr>
         <tr><td>Homebrew</td><td><code>brew upgrade copse</code></td><td><code>brew uninstall copse</code></td></tr>
         <tr><td>Download</td><td>Download the new version and replace the file</td><td><code>sudo rm /usr/local/bin/copse</code></td></tr>
         <tr><td>Cargo</td><td>Run the install command again</td><td><code>cargo uninstall copse</code></td></tr>
-      </table>
+      </table></div>
       <p class="muted">Removing Copse doesn't touch your repositories: each keeps its history in its own <code>.copse</code> folder.</p>
     </div>
   </section>

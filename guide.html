@@ -101,7 +101,7 @@ copse merge feature         # bring its work into main</code></pre>
 
         <section id="undo">
           <h2>Undo</h2>
-          <p>Copse records every move your branch makes. <code>copse undo</code> reverses the last one, whether it was a commit, merge, rebase, reset or checkout. Run it again to redo.</p>
+          <p>Copse records every move your branch makes. <code>copse undo</code> reverses the last one, whether it was a commit, merge, rebase, pull or reset. Run it again to redo.</p>
           <pre class="copyable"><code>copse undo
 copse reflog                # every recorded move, newest first</code></pre>
           <p>Anything that would throw work away keeps a backup first. <code>copse restore file.txt</code> discards your changes to a file, and <code>copse reset --hard</code> moves the branch, but both stash your uncommitted work before they do.</p>
@@ -117,7 +117,7 @@ copse stash pop             # bring them back</code></pre>
 
         <section id="remotes">
           <h2>Remotes and GitHub</h2>
-          <p>Copse works directly with GitHub, GitLab, Codeberg and any git server, over HTTPS or SSH. To your teammates it looks like any other git client.</p>
+          <p>Copse works directly with GitHub, GitLab, Bitbucket and any git server, over HTTPS or SSH. To your teammates it looks like any other git client.</p>
           <pre class="copyable"><code>copse remote add origin git@github.com:you/project.git
 copse push                  # send your work
 copse pull                  # get what others pushed

@@ -65,7 +65,7 @@
         <article>
           <svg class="icon" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
           <h3>Undo for everything</h3>
-          <p><code>copse undo</code> reverses the last commit, merge, rebase, reset or checkout. Anything that would throw work away keeps a backup first.</p>
+          <p><code>copse undo</code> reverses the last commit, merge, rebase, pull or reset. Anything that would throw work away keeps a backup first.</p>
         </article>
         <article>
           <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 8.2v7.6"/><path d="M18 10.2c0 4-6 3-11 6"/></svg>
@@ -101,8 +101,9 @@
         <h2>Every step can be taken back</h2>
         <p>
           Copse keeps a record of every move your branch makes: each commit, merge,
-          rebase and checkout. <code>copse undo</code> steps back through them, and running
-          it again steps forward.
+          rebase, pull and reset. <code>copse undo</code> reverses the last one, and running
+          it again redoes it. <code>copse reflog</code> lists them all, and the Undo screen
+          can go back to any of them.
         </p>
         <p>
           Run <code>copse</code> on its own for a screen with your changes, the commit graph,
