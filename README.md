@@ -1,9 +1,8 @@
-# copse-site (Rust)
+# copse-site
 
-An experimental rebuild of the [Copse](https://github.com/Copse-SCM/copse) website in Rust:
+The website for [Copse](https://github.com/Copse-SCM/copse), written in Rust:
 [Leptos](https://leptos.dev) rendered in the browser (CSR), compiled to WebAssembly and
-built with [Trunk](https://trunkrs.dev). The plain-HTML site in `~/Desktop/copse-site`
-is still the live one; this copy has no remote, so nothing here can reach it.
+built with [Trunk](https://trunkrs.dev).
 
 ## Run it
 
